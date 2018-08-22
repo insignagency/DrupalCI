@@ -48,16 +48,11 @@ RUN curl -LO "https://nodejs.org/dist/v7.1.0/node-v7.1.0-linux-x64.tar.gz" \
 
 
 # Install npm 4.2 
-#ENV NPM_VERSION 4.2.0
-
-
-#  temporary step to bypass error
 RUN npm install -g yarn
 RUN yarn
 RUN mkdir -p /opt/yarn/bin && ln -s /opt/yarn/yarn-v1.5.1/bin/yarn /opt/yarn/bin/yarn
 RUN yarn global add npm@4.2.0
 RUN npm install --production
-#RUN npm install -g npm@4.2.0
 RUN node -v
 RUN npm -v
 RUN npm run
@@ -93,4 +88,3 @@ RUN CHROMEDRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RE
     rm /tmp/chromedriver_linux64.zip && \
     chmod +x /opt/chromedriver-$CHROMEDRIVER_VERSION/chromedriver && \
     ln -fs /opt/chromedriver-$CHROMEDRIVER_VERSION/chromedriver /usr/local/bin/chromedriver
-#RUN chromedriver -v
