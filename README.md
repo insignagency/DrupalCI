@@ -20,14 +20,14 @@ https://docs.docker.com/docker-for-mac/
 ## Installing
 
 Download automated build from public Docker Hub Registry
-(or alternatively you can build an image from Dockerfile: `docker build -t="dockerfile/"image name" .` , then running the Dockerfile in the current folder). 
+(or alternatively you can build an image from Dockerfile: `docker build -t="dockerfile/"image name" .` , then running the Dockerfile in the current folder). If you want the no cache version of your build, simply write `docker build --no-cache` .
 
 You can find here an exhaustive list of full build commands if necessary
 https://docs.docker.com/engine/reference/commandline/build/
 
 
 ## Dockerfile customization (Drupal image using PHP7.1)
-Our Dockerfile has been applied to the Drupal Open Source CMS using PHP7.1.    
+Our Dockerfile has been configured with Drupal Open Source CMS using PHP7.1.    
 
 ## Best (DevOps) practices for writing a Dockerfile
 
