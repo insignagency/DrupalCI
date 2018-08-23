@@ -47,7 +47,7 @@ RUN curl -LO "https://nodejs.org/dist/v7.1.0/node-v7.1.0-linux-x64.tar.gz" \
 && rm node-v7.1.0-linux-x64.tar.gz
 
 
-# Install npm 4.2 
+# Install npm 4.2 via yarn 
 RUN npm install -g yarn
 RUN yarn
 RUN mkdir -p /opt/yarn/bin && ln -s /opt/yarn/yarn-v1.5.1/bin/yarn /opt/yarn/bin/yarn
@@ -63,7 +63,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN ln -s /usr/local/bin/composer /usr/bin/composer
 
 #Install Drush9 via composer
-# Set the Drush version.
 ENV DRUSH_VERSION 9.0.0
 RUN git clone https://github.com/drush-ops/drush.git /usr/local/src/drush && \
     cd /usr/local/src/drush && \
