@@ -1,5 +1,5 @@
 
-## Getting Started 
+## Getting Started with Dockerfile
 
 A Dockerfile is a smart text tool allowing the user to recall all images commands in a more compact and effective way. You can find additional info on how to set this file at the following link:
 https://docs.docker.com/engine/reference/builder/
