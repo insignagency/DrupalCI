@@ -21,11 +21,12 @@ https://docs.docker.com/docker-for-mac/
 
 Download automated build from public Docker Hub Registry
 (or alternatively you can build an image from Dockerfile: `docker build -t="dockerfile/"image name" .` , then running the Dockerfile in the current folder). 
+
 You can find here an exhaustive list of full build commands if necessary
 https://docs.docker.com/engine/reference/commandline/build/
 
 
-## Best (DevOps) practices for writing Dockerfile
+## Best (DevOps) practices for writing a Dockerfile
 
 It's strongly recommended to use the following guidelines 
 
@@ -35,4 +36,8 @@ especially about this special point "Don’t install unnecessary packages" , alw
 
 
 ## Deployment
-Dockerfile is also the starting point for running the Docker compose file, normally called`docker-compose.yml` which is   https://docs.docker.com/compose/gettingstarted/#step-2-create-a-dockerfile
+Dockerfile is also the starting point for running the Docker compose file, normally called`docker-compose.yml` which is  a tool for running multi-container applications
+
+https://docs.docker.com/compose/
+https://docs.docker.com/compose/gettingstarted/#step-2-create-a-dockerfile
+
