@@ -26,6 +26,9 @@ You can find here an exhaustive list of full build commands if necessary
 https://docs.docker.com/engine/reference/commandline/build/
 
 
+## Dockerfile customization (Drupal image using PHP7.1)
+Our Dockerfile has been applied to the Drupal Open Source CMS using PHP7.1.    
+
 ## Best (DevOps) practices for writing a Dockerfile
 
 It's strongly recommended to use the following guidelines 
