@@ -1,6 +1,3 @@
-## Our first file is the Dockefile of our CI project. 
-
-
 
 ## Getting Started 
 
@@ -19,7 +16,12 @@ https://docs.docker.com/docker-for-windows/install/
 Download automated build from public Docker Hub Registry
 (or alternatively you can build an image from Dockerfile: `docker build -t="dockerfile/"image name" .` , then running the Dockerfile in the current folder). `
 
-## Running the tests
+## Best (DevOps) practices for writing Dockerfile
+It's strongly recommended to use the following guidelines 
+
+https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+
+especially about this special point "Don’t install unnecessary packages" , always recommended but you should be care of avoiding dependencies issue while compiling according to what you need for your project, recalling that "simpler is better" , "too much simple is risky".   
 
 
 ## Break down into end to end tests
