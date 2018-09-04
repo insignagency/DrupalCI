@@ -29,9 +29,9 @@ Our Dockerfile has been configured with Drupal Open Source CMS using PHP7.1.
 - Composer 1.7.2
 - Node 7.1.0
 - Npm 4.2 and Yarn 1.5.1
-- Drush9
+- Drush 9.0.0
 - Drupal console launcher
-- Chromedriver
+- Chromedriver 2.4.1 (automatically installed the latest available version)
 
 ## Installing
 
