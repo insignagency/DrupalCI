@@ -26,12 +26,12 @@ https://docs.docker.com/engine/reference/commandline/build/
 Our Dockerfile has been configured with Drupal Open Source CMS using PHP7.1.  
 
 ## Features used and part of our Drupal project 
-- Composer
+- Composer 1.7.2
 - Node 7.1.0
-- npm 4.2 and yarn 
+- Npm 4.2 and Yarn 
 - Drush9
 - Drupal console launcher
-- chromedriver
+- Chromedriver
 
 ## Installing
 
