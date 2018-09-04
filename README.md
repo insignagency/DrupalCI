@@ -17,17 +17,27 @@ https://docs.docker.com/docker-for-windows/install/#start-docker-for-windows
 or this one if you're working under MacOs
 https://docs.docker.com/docker-for-mac/
 
-## Installing
-
-Download automated build from public Docker Hub Registry
-(or alternatively you can build an image from Dockerfile: `docker build -t="dockerfile/"image name" .` , then running the Dockerfile in the current folder). If you want the no cache version of your build, simply write `docker build --no-cache.`
 
 You can find here an exhaustive list of full build commands if necessary
 https://docs.docker.com/engine/reference/commandline/build/
 
 
 ## Dockerfile customization (Drupal image using PHP7.1)
-Our Dockerfile has been configured with Drupal Open Source CMS using PHP7.1.    
+Our Dockerfile has been configured with Drupal Open Source CMS using PHP7.1.  
+
+## Features used and part of our Drupal project 
+- Composer
+- Node 7.1.0
+- npm 4.2 and yarn 
+- Drush9
+- Drupal console launcher
+- chromedriver
+
+## Installing
+
+Download automated build from public Docker Hub Registry
+(or alternatively you can build an image from Dockerfile: `docker build -t="dockerfile/"image name" .` , then running the Dockerfile in the current folder). If you want the no cache version of your build, simply write `docker build --no-cache.`
+
 
 ## Best (DevOps) practices for writing a Dockerfile
 
@@ -44,3 +54,8 @@ Dockerfile is also the starting point for running the Docker compose file, norma
 https://docs.docker.com/compose/
 https://docs.docker.com/compose/gettingstarted/#step-2-create-a-dockerfile
 
+## Debugging
+
+This commmand will run a bash session in the container.
+
+docker run --rm -v $(pwd):/src -it --entrypoint=bash insignagency/DrupalCI
