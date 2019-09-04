@@ -1,20 +1,17 @@
-FROM php:7.1-apache
+FROM php:7.2-apache
 
-
+RUN apt-get update && apt-get install -y \
 # Install Git and wget.
-RUN apt-get update
-RUN apt-get install wget -y
-RUN apt-get install git -y
-
+  git \
+  wget \
 # Install curl and sudo privileges
-RUN apt-get install -y curl
-RUN apt-get install -y sudo
-RUN apt-get update \
-&& rm -rf /var/lib/apt/lists/*
+  curl \
+  sudo
+
+RUN apt-get update && rm -rf /var/lib/apt/lists/*
 
 # Install other dependencies
-RUN apt-get update \
-  && apt-get install --fix-missing -y \
+RUN apt-get update && apt-get install --fix-missing -y \
   apt-transport-https \
   apt-utils \
   dialog apt-utils \	
@@ -37,8 +34,11 @@ RUN apt-get update \
   vim \
   wget \
   zip
+
 RUN docker-php-ext-install gd
-RUN docker-php-ext-install mcrypt
+# See https://www.php.net/manual/en/migration72.other-changes.php#migration72.other-changes.mcrypt
+RUN pecl install mcrypt-1.0.2 \
+    && docker-php-ext-enable mcrypt
 
 # Install Node 7.1.0
 ENV NODE_VERSION 7.1.0
@@ -46,15 +46,13 @@ RUN curl -LO "https://nodejs.org/dist/v7.1.0/node-v7.1.0-linux-x64.tar.gz" \
 && tar -xzf node-v7.1.0-linux-x64.tar.gz -C /usr/local --strip-components=1 \
 && rm node-v7.1.0-linux-x64.tar.gz
 
-
 # Install npm 4.2 via yarn 
 RUN npm install -g yarn
 RUN yarn
 RUN mkdir -p /opt/yarn/bin && ln -s /opt/yarn/yarn-v1.5.1/bin/yarn /opt/yarn/bin/yarn
 RUN yarn global add npm@4.2.0
 RUN npm install --production
-RUN node -v
-RUN npm -v
+RUN node -v && npm -v
 RUN npm run
 
 # Install composer
@@ -71,13 +69,11 @@ RUN git clone https://github.com/drush-ops/drush.git /usr/local/src/drush && \
     composer install
 RUN drush --version
 
-
 #Install Drupal console launcher
 RUN php -r "readfile('https://drupalconsole.com/installer');" > drupal.phar && \
     mv drupal.phar /usr/local/bin/drupal && \
     chmod +x /usr/local/bin/drupal && \
     /usr/local/bin/drupal check
-
 
 #Install and configure chromedriver
 RUN CHROMEDRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE` && \
