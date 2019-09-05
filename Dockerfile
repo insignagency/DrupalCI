@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y \
   wget \
 # Install curl and sudo privileges
   curl \
+  rsync \
   sudo
 
 RUN apt-get update && rm -rf /var/lib/apt/lists/*
