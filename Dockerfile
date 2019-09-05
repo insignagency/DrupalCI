@@ -5,6 +5,7 @@ FROM php:7.1-apache
 RUN apt-get update
 RUN apt-get install wget -y
 RUN apt-get install git -y
+RUN apt-get install rsync -y
 
 # Install curl and sudo privileges
 RUN apt-get install -y curl
