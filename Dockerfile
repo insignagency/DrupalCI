@@ -1,13 +1,16 @@
 FROM php:7.2-apache
 
 RUN apt-get update && apt-get install -y \
-# Install Git and wget.
+  # Install Git and wget.
   git \
   wget \
-# Install curl and sudo privileges
+  # Install curl, rsync and sudo privileges
   curl \
   rsync \
-  sudo
+  sudo && \
+  # Install git lfs
+  #curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash && \
+  #  sudo apt-get install git-lfs
 
 RUN apt-get update && rm -rf /var/lib/apt/lists/*
 
